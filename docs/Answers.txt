@@ -1,0 +1,114 @@
+CSCI 2134 Final Exam, Fall 2023
+===============================
+
+Full name:  Harshil Varia
+Banner ID:  B00919242
+
+==============
+| Question 1 |
+==============
+
+Add your name and Banner ID in the space provided above.
+
+
+==============
+| Question 2 |
+==============
+
+Defect 1.
+  Location: Class:- Workshop.java Method-: Workshop(int numMakers, int numBuilders) : Line 41,45
+  Description: Constructor Should add Type OF maker/ builder to correct ArrayList (Alternate mismatch)
+  Fix: Change loop size condition to particular Maker/Builder to build correct size of ArrayList
+
+Defect 2.
+  Location: Class:- BuilderElf.java Method-: cookieBreak() Line 39-41
+  Description: The break Should add 2 to any amount of current Energy but only adds if its <=0
+  Fix: Remove the if statement
+
+Defect 3.
+  Location: Class:- MakerElf.java Method-: cookieBreak() Line 38-40
+  Description: The break Should add 5 to any amount of current Energy but only adds if its <=0
+  Fix: Remove the if statement
+
+Defect 4.
+  Location: Class:- BuilderElf.java  Method-: BuilderElf() Line: 15
+  Description: Should create a builder Elf with energy=2 Not energy=3
+  Fix: Change the constructor to energy=2
+
+Defect 5.
+  Location: Class:- Workshop.java Method:- nextRound() Line: 97,100
+  Description: The materials transformed to toy should be removed from materials list
+  Fix: remove materials from queue( materials.remove(material) ).
+
+//Add more if needed
+
+
+==============
+| Question 3 |
+==============
+
+Assertion 1.
+  Location: Class:- MakerElf.java Method:- chopWood() Line:-60
+  Description: assertion is check that the elf must have at least 2 units of energy to successfully chop wood.
+
+Exception 1.
+  Location: MakerELf.java Method:- weaveCotton() Line:- 48
+  Exception thrown: NullPointerException
+  Throw conditions: If energy amount less than 1.
+
+Exception 2.
+  Location: Workshop.java Method:- Workshop(int numMakers, int numBuilders) Line:- 41
+  Exception thrown: IllegalStateException
+  Throw conditions: if number of Maker or builder enter by user is negative
+
+Exception 3.
+  Location: BuilderElf.java Method:- build(Wood material) Line:-59
+  Exception thrown: IllegalArgumentException
+  Throw conditions: If Builder's energy amount is less than 1
+
+
+==============
+| Question 4 |
+==============
+
+Refactoring 1.
+  Location: Workshop.java
+  Code smell: Direct usuage of method parameters.
+  Proposed fix: Introduce local variable and use them to refer method parameters.
+
+Refactoring 2.
+  Location: StuffedAnimal.java
+  Code smell: Removed Unused Code
+  Proposed fix: delete the usued code
+
+Refactoring 3.
+  Location: BuilderElf.java
+    Code smell: Magic Number
+    Proposed fix: Introduce a Constant minimum energy(MINENERGY) which will remain unchanged is equal to 1.
+
+
+==============
+| Question 5 |
+==============
+
+Class Refactoring 1.
+  Class(es) involved: Workshop.java
+  Location: Line 26-30
+  Issue identified: Encapulation
+  SOLID violation: Dependency Inversion Principle
+  Proposed fix: make all instance variable private and build setter/getter for the need instance variable.
+
+Class Refactoring 2.
+  Class(es) involved: Workshop.java, Workshop_Department.java
+  Location: 64-75
+  Issue identified: complication of Class which uses complex loops
+  SOLID violation: Single Reposibility Principle
+  Proposed fix: extract methods to helper class( Workshop_department.java)
+
+Class Refactoring 3.
+  Class(es) involved: Workshop_Department.java
+  Location: buildToys(ArrayList<BuilderElf> builders, Queue materials, ArrayList trains, ArrayList animals)
+  Issue identified: Common statement in both if and else
+  SOLID violation:
+  Proposed fix: pull out the common code outside conditional statemtents
+
